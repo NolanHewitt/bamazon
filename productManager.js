@@ -164,17 +164,16 @@ const question1 = [
                         console.log(newDep);
                         console.log(newPrice);
                         console.log(newStock);
+                        //Lines 168 through 174 were made with the help of http://www.mysqltutorial.org/mysql-nodejs/insert/
                         let sql = `INSERT INTO products (product_name, department_name, price, stock_quantity) VALUES ?`;
                         let products = [
                             [newName, newDep, newPrice, newStock],
                           ];
-
                           connection.query(sql, [products], (err, results, fields) => {
                             if (err) {
                               return console.error(err.message);
                             }
                           });
-
                         connection.end();
                     });
 
